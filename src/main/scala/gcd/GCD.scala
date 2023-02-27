@@ -32,3 +32,10 @@ class GCD extends Module {
   io.outputGCD := x
   io.outputValid := y === 0.U
 }
+
+object Elaborate extends App {
+  (new stage.ChiselStage).execute(
+    Array("-td=rtl", s"-o=gcd"),
+    Seq(chisel3.stage.ChiselGeneratorAnnotation(() => new GCD))
+  )
+}
