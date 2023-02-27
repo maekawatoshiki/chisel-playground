@@ -1,3 +1,5 @@
 .bsp
+.metals
+.bloop
 target/
 test_run_dir
