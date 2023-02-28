@@ -14,9 +14,10 @@ class AdderSpec extends AnyFreeSpec with ChiselScalatestTester {
       dut.output.initSink()
       dut.output.setSinkClock(dut.clock)
 
-      val testValues = for { x <- 0 to 10; y <- 0 to 10} yield (x, y)
-      val inputSeq = testValues.map {
-        case (x, y) => (new AdderInputBundle(16)).Lit(_.in0 -> x.U, _.in1 -> y.U) }
+      val testValues = for { x <- 0 to 10; y <- 0 to 10 } yield (x, y)
+      val inputSeq = testValues.map { case (x, y) =>
+        (new AdderInputBundle(16)).Lit(_.in0 -> x.U, _.in1 -> y.U)
+      }
       val resultSeq = testValues.map { case (x, y) => (x + y).U }
 
       fork {

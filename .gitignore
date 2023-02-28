@@ -3,3 +3,4 @@
 .bloop
 target/
 test_run_dir
+rtl/
